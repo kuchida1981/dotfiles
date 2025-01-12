@@ -1,1 +1,0 @@
-keymap m EXTERN_LINK "echo %s | putclip"
