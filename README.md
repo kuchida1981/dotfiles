@@ -1,27 +1,22 @@
 # dotfiles
 
-## mintty
+## supports
 
-    ln -s $dotfiles/mintty/minttyrc $HOME/.minttyrc
+* fish shell
+* neovim
+* tmux
+* alacritty
 
-    if [ ! -d "$HOME/usr/src/mintty-colors-solarized" ]; then
-        git clone https://github.com/mavnn/mintty-colors-solarized \
-            $HOME/usr/src/mintty-colors-solarized
+## prerequirements
 
-        cat <<EOF | sed "s/^\s\+//" >> .zshrc
-        # mintty colorscheme
-        \$HOME/usr/src/mintty-colors-solarized/sol.dark
-        EOF
-    fi
+* fish-shell installed
+* git configured (with SSH)
 
+## usage
 
-## vimperator
-
-Windowsなら `_vimperatorrc`
-
-    ln -s $dotfiles/vimperator/vimperatorrc $HOME/.vimperatorrc
-
-
-## w3m
-
-    ln -s $dotfiles/w3m $HOME/.w3m
+```sh
+cd path/to
+git clone git@github.com:kuchida1981/dotfiles.git
+cd dotfiles
+make
+```
