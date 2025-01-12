@@ -1,5 +1,5 @@
 PREFIX = $(HOME)
-TARGETS = fish alacritty tmux
+TARGETS = fish alacritty tmux nvim
 XDG_CONFIG_DIR = $(PREFIX)/.config
 
 .PHONY: all clean $(TARGETS)
@@ -30,3 +30,7 @@ alacritty:
 
 tmux:
 	install -D tmux/tmux.conf $(XDG_CONFIG_DIR)/tmux/tmux.conf
+
+nvim:
+	test -d $(XDG_CONFIG_DIR)/nvim || \
+		git clone https://github.com/kuchida1981/nvchad-settings.git $(XDG_CONFIG_DIR)/nvim
