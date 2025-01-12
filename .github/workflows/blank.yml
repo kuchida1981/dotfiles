@@ -9,5 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: setup
+        run: apt update && apt install -y fish
+
       - name: test
         run: make
