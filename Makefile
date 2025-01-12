@@ -1,5 +1,5 @@
 PREFIX = $(HOME)
-TARGETS = fish alacritty
+TARGETS = fish alacritty tmux
 XDG_CONFIG_DIR = $(PREFIX)/.config
 
 .PHONY: all clean $(TARGETS)
@@ -24,5 +24,9 @@ fish:
 	install -D fish/conf.d/direnv.fish $(XDG_CONFIG_DIR)/fish/conf.d/direnv.fish
 
 alacritty:
-	git clone https://github.com/alacritty/alacritty-theme $(XDG_CONFIG_DIR)/alacritty/themes
+	test -d $(XDG_CONFIG_DIR)/alacritty/themes || \
+		git clone https://github.com/alacritty/alacritty-theme $(XDG_CONFIG_DIR)/alacritty/themes
 	install -D alacritty/alacritty.toml $(XDG_CONFIG_DIR)/alacritty/alacritty.toml
+
+tmux:
+	install -D tmux/tmux.conf $(XDG_CONFIG_DIR)/tmux/tmux.conf
